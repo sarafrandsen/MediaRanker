@@ -32,11 +32,11 @@ class WorksController < ApplicationController
   def update
     if @work.update(work_params)
       flash[:status] = :success
-      flash[:message] = 'Successfully updated #{@work.title}.'
+      flash[:message] = 'Successfully updated #{@work.category} #{@work.id}'
       return redirect_to works_path
     else
       flash.now[:status] = :failure
-      flash.now[:message] = 'Failed to update #{@work.title}.'
+      flash.now[:message] = 'A problem occurred: Could not update #{@work.category}'
       flash.now[:details] = @work.errors.messages
       return render :edit, status: :bad_request
     end
