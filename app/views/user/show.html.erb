@@ -1,0 +1,72 @@
+<%# view single user %>
+<%= render partial: 'layouts/nav' %>
+
+<h1>
+  User Summary: <%# username %>
+</h1>
+
+<p>
+  Joined site <%# user created date %>
+</p>
+
+<section>
+  <h2>
+    Votes
+  </h2>
+  <section> <%# title row %>
+    <ul>
+      <strong>
+        <li>
+          Media Title
+        </li>
+        <li>
+          Created by
+        </li>
+        <li>
+          Published
+        </li>
+        <li>
+          Category
+        </li>
+        <li>
+          Voted On
+        </li>
+      </strong>
+    </ul>
+  </section>
+
+  <section> <%# details row %>
+    <ul>
+      <strong>
+        <li>
+          <%# Media Title %>
+        </li>
+        <li>
+          <%# Created by %>
+        </li>
+        <li>
+          <%# Published %>
+        </li>
+        <li>
+          <%# Category %>
+        </li>
+        <li>
+          <%# Voted On %>
+        </li>
+      </strong>
+    </ul>
+  </section>
+</section>
+
+<footer>
+  <nav>
+    <ul>
+      <li>
+        <%# link to see all users %>
+      </li>
+      <li>
+        <%# link to homepage %>
+      </li>
+    </ul>
+  </nav>
+</footer>
