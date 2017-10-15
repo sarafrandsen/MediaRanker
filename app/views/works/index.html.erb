@@ -6,9 +6,26 @@
 </h1>
 
 <section>
-<%= render partial: 'works' %> <%# albums %>
-<%= render partial: 'works' %> <%# books %>
-<%= render partial: 'works' %> <%# movies %>
+  <article>
+    <h2>
+      Albums
+    </h2>
+    <%= render partial: 'works', locals: {works: @albums} %> <%# albums %>
+  </article>
+
+  <article>
+    <h2>
+      Books
+    </h2>
+    <%= render partial: 'works', locals: {works: @books} %> <%# books %>
+  </article>
+
+  <article>
+    <h2>
+      Movies
+    </h2>
+    <%= render partial: 'works',locals: {works: @movies} %> <%# movies %>
+  </article>
 </section>
 
 <footer>
