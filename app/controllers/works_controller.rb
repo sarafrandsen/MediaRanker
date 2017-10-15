@@ -11,11 +11,11 @@ class WorksController < ApplicationController
 
   def create
     if flash[:status] = :success
-      flash[:message] = 'Successfully added #{@work.title}.'
+      flash[:message] = 'Successfully created #{@work.category} #{@work.id}'
       return redirect_to work_path(@work.id)
     else
       flash.now[:status] = :failure
-      flash.now[:message] = 'Failed to add a new #{@work.category}.'
+      flash.now[:message] = 'A problem occurred: Could not create #{@work.category}'
       flash.now[:details] = @work.errors.messages
       return render :new, status: :bad_request
     end
