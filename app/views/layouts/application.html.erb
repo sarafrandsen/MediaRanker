@@ -9,6 +9,48 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>
+        <%= link_to 'Media Ranker', root_path %>
+      </h1>
+
+      <h2>
+        Ranking the Best of Everything
+      </h2>
+    </header>
+
+    <nav>
+      <section>
+        <ul>
+          <li>
+            <%= link_to 'View top media', root_path %>
+          </li>
+          <li>
+            <%= link_to 'View all media', works_path %>
+          </li>
+          <li>
+            <%= link_to 'Add a new work', new_work_path %>
+          </li>
+          <li>
+            <%= link_to 'View all users', users_path %>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <ul>
+          <li>
+            <%# log in %>
+          </li>
+          <li>
+            <%# log out %>
+          </li>
+        </ul>
+      </section>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
