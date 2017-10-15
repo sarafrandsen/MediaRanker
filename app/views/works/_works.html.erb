@@ -20,20 +20,22 @@
   </ul>
 
   <ul>
-    <li>
-      <%# number of votes %>
-    </li>
-    <li>
-      <%# title (with link) %>
-    </li>
-    <li>
-      <%# created by %>
-    </li>
-    <li>
-      <%# year published %>
-    </li>
-    <li>
-      <%# link to upvote %>
-    </li>
+    <% works.each do |work| %>
+      <li>
+        <%# number of votes %>
+      </li>
+      <li>
+        <%= link_to work.title, work_path(work.id) %>
+      </li>
+      <li>
+        <%= '#{work.creator}' %>
+      </li>
+      <li>
+        <%= '#{work.year_published}' %>
+      </li>
+      <li>
+        <%# link to upvote %>
+      </li>
+    <% end %>
   </ul>
 </section>
