@@ -2,16 +2,25 @@
 <%= render partial: 'layouts/nav' %>
 
 <article class="spotlight">
+  <h1>
+    Media Spotlight: <%# title (with link) by creator %>
+  </h1>
+  <p>
+    <%# numbe of votes <%>
+  </p>
 </article>
 
-<section class="top_10">
-  <article>
-    <%# movies %>
-  </article>
-  <article>
-    <%# books %>
-  </article>
-  <article>
-    <%# albums %>
-  </article>
+<section>
+  <%= render partial: 'top10' %>
+  <%# top 10 movies %>
+</section>
+
+<section>
+  <%= render partial: 'top10' %>
+  <%# top 10 books %>
+</section>
+
+<section>
+  <%= render partial: 'top10' %>
+  <%# albums %>
 </section>
