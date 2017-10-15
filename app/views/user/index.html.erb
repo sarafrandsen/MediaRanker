@@ -2,11 +2,35 @@
 <%= render partial: 'layouts/nav' %>
 
 <h1>
-  View all users
+  List of users
 </h1>
 
-<section>
-  <%# list of users %>
+<section> <%# list of users %>
+  <ul> <%# title row %>
+    <strong>
+      <li>
+        Username
+      </li>
+      <li>
+        Votes
+      </li>
+      <li>
+        Joined
+      </li>
+    </strong>
+  </ul>
+
+  <ul>
+    <li>
+      <%# username (with link) %>
+    </li>
+    <li>
+      <%# number of votes %>
+    </li>
+    <li>
+      <%# joined %>
+    </li>
+  </ul>
 </section>
 
 <footer>
