@@ -1,8 +1,8 @@
 class WorksController < ApplicationController
   def index
-    @albums = Work.where(category: "album")
-    @movies = Work.where(category: "book")
-    @books = Work.where(category: "movie")
+    @albums = Work.where(category: 'album')
+    @movies = Work.where(category: 'book')
+    @books = Work.where(category: 'movie')
   end
 
   def new
@@ -11,11 +11,11 @@ class WorksController < ApplicationController
 
   def create
     if flash[:status] = :success
-      flash[:message] = "Successfully added #{@work.title}."
+      flash[:message] = 'Successfully added #{@work.title}.'
       return redirect_to work_path(@work.id)
     else
       flash.now[:status] = :failure
-      flash.now[:message] = "Failed to add a new #{@work.category}."
+      flash.now[:message] = 'Failed to add a new #{@work.category}.'
       flash.now[:details] = @work.errors.messages
       return render :new, status: :bad_request
     end
@@ -32,11 +32,11 @@ class WorksController < ApplicationController
   def update
     if @work.update(work_params)
       flash[:status] = :success
-      flash[:message] = "Successfully updated #{@work.title}."
+      flash[:message] = 'Successfully updated #{@work.title}.'
       return redirect_to works_path
     else
       flash.now[:status] = :failure
-      flash.now[:message] = "Failed to update #{@work.title}."
+      flash.now[:message] = 'Failed to update #{@work.title}.'
       flash.now[:details] = @work.errors.messages
       return render :edit, status: :bad_request
     end
@@ -48,11 +48,11 @@ class WorksController < ApplicationController
     if @work
       @work.destroy
       flash[:status] = :success
-      flash[:message] = "Deleted #{@work.title}."
+      flash[:message] = 'Deleted #{@work.title}.'
       return redirect_to works_path
     else
       flash[:status] = :failure
-      flash[:message] = "Something went wrong!"
+      flash[:message] = 'Something went wrong!'
       return redirect_to works_path
     end
   end
