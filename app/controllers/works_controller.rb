@@ -10,16 +10,16 @@ class WorksController < ApplicationController
   end
 
   def create
-    flash[:status] = :success
-    flash[:message] = "Successfully added #{@work.title}."
-    return redirect_to work_path(@work.id)
-  else
-    flash.now[:status] = :failure
-    flash.now[:message] = "Failed to add a new #{@work.category}."
-    flash.now[:details] = @work.errors.messages
-    return render :new, status: :bad_request
+    if flash[:status] = :success
+      flash[:message] = "Successfully added #{@work.title}."
+      return redirect_to work_path(@work.id)
+    else
+      flash.now[:status] = :failure
+      flash.now[:message] = "Failed to add a new #{@work.category}."
+      flash.now[:details] = @work.errors.messages
+      return render :new, status: :bad_request
+    end
   end
-end
 
   def show
     @work = Work.find(params[:id])
@@ -30,18 +30,31 @@ end
   end
 
   def update
-    @work = Work.find(params[:id])
-    @work.update(work_params)
-    @work.save
-
-    redirect_to work_path(@work)
+    if @work.update(work_params)
+      flash[:status] = :success
+      flash[:message] = "Successfully updated #{@work.title}."
+      return redirect_to works_path
+    else
+      flash.now[:status] = :failure
+      flash.now[:message] = "Failed to update #{@work.title}."
+      flash.now[:details] = @work.errors.messages
+      return render :edit, status: :bad_request
+    end
   end
 
   def destroy
-    @work = Work.find(params[:id])
-    @work.destroy
+    @work = Work.find_by(id: params[:id])
 
-    redirect_to works_path
+    if @work
+      @work.destroy
+      flash[:status] = :success
+      flash[:message] = "Deleted #{@work.title}."
+      return redirect_to works_path
+    else
+      flash[:status] = :failure
+      flash[:message] = "Something went wrong!"
+      return redirect_to works_path
+    end
   end
 
   private
