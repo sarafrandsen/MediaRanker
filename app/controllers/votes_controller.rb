@@ -4,5 +4,5 @@ class VotesController < ApplicationController
   end
 
   def new
-    @vote = Vote.new 
+    @vote = Vote.new
 end
