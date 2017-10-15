@@ -5,11 +5,21 @@
   <h1>
     <%= @work.title %>
   </h1>
+
   <article>
-    <%= @work.creator %>
-    <%= @work.year_published %>
-    <%= @work.description %>
+    <ul>
+      <li>
+        <%= @work.creator %>
+      </li>
+      <li>
+        <%= @work.year_published %>
+      </li>
+      <li>
+        <%= @work.description %>
+      </li>
+    </ul>
   </article>
+
   <nav>
     <ul>
       <li>
@@ -32,6 +42,7 @@
   <h1>
     <%# number of total votes %>
   </h1>
+  
   <section>
     <%# user who voted %>
     <%# date they voted %>
