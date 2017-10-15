@@ -3,18 +3,28 @@
 <%# work details %>
 <section>
   <h1>
-    <%# work title %>
+    <%= @work.title %>
   </h1>
   <article>
-    <%# created by %>
-    <%# published %>
-    <%# description %>
+    <%= @work.creator %>
+    <%= @work.year_published %>
+    <%= @work.description %>
   </article>
   <nav>
-    <%# link to homepage %>
-    <%# link to edit %>
-    <%# link to upvote %>
-    <%# link to delete %>
+    <ul>
+      <li>
+        <%= link_to 'Back to media ranks', root_path %>
+      </li>
+      <li>
+        <%= link_to 'Edit', edit_work_path(@work.id) %>
+      </li>
+      <li>
+        <%# link to upvote %>
+      </li>
+      <li>
+        <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure you want to delete this work?"} %>
+      </li>
+    </ul>
   </nav>
 </section>
 
