@@ -60,6 +60,14 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :creator, :year_released, :description)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def find_work_by_params_id
+    @work = Work.find_by(id: params[:id])
+    unless @work
+      head :not_found
+    end
+    return @work
   end
 end
