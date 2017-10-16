@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'main#index'
 
   resources :users, only: [:index, :new, :create, :show]
-  # resources :votes, only: [:index, :new, :create]
+  resources :votes, only: [:index, :new, :create]
   resources :works
 
   get '/login', to: 'sessions#login_form'

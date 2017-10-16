@@ -5,7 +5,7 @@ class CreateWorks < ActiveRecord::Migration[5.1]
       t.string :creator
       t.integer :year_published
       t.string :description
-      
+
       t.timestamps
     end
   end
