@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     unless @user
-      return head :not_found
+      head :not_found
     end
   end
 
@@ -20,6 +20,15 @@ class UsersController < ApplicationController
     session[:user] = User.find_by(name: params[:user][:name])
     flash[:status] = :success
     flash[:message] = "Successfully logged in as existing user #{user.name}"
-    return redirect_to root_path
+    # need something for users already in database
+    redirect_to root_path
+  end
+
+  def logout
+    session[:user] = nil
+    flash[:status] = :success
+    flash[:message] = "Successfully logged out"
+
+    redirect_to root_path
   end
 end
