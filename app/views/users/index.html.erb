@@ -19,17 +19,11 @@
     </strong>
   </ul>
 
-  <ul>
-    <li>
-      <%# username (with link) %>
-    </li>
-    <li>
-      <%# number of votes %>
-    </li>
-    <li>
-      <%# joined %>
-    </li>
-  </ul>
+  <% @users.each do |user| %>
+    <%= link_to user.name, user_path(user.id) %>
+    <%#user.votes.count%>
+    <%= user.created_at.strftime("%b %d, %Y") %>
+  <% end %>
 </section>
 
 <footer>
