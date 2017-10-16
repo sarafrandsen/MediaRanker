@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   root 'main#index'
 
   resources :users, only: [:index, :new, :create, :show]
-  resources :votes, only: [:index, :new, :create]
+  # resources :votes, only: [:index, :new, :create]
   resources :works
 
   get '/login', to: 'sessions#login_form'
   post '/login', to: 'sessions#login'
   delete '/login', to: 'sessions#logout'
 
-  post '/votes/:id', to:'votes#upvote'
+  get 'votes/create'
+  post 'works/:id/vote', to: 'votes#create', as: 'vote'
 end
