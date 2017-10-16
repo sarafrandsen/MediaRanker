@@ -15,4 +15,11 @@ class UsersController < ApplicationController
     user = User.new(name: params[:user][:name])
     user.save
   end
+
+  def login
+    session[:user] = User.find_by(name: params[:user][:name])
+    flash[:status] = :success
+    flash[:message] = "Successfully logged in as existing user #{user.name}"
+    return redirect_to root_path
+  end
 end
