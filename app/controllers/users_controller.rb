@@ -11,24 +11,35 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    user = User.new(name: params[:user][:name])
-    user.save
+  def login_form
   end
 
   def login
-    session[:user] = User.find_by(name: params[:user][:name])
-    flash[:status] = :success
-    flash[:message] = "Successfully logged in as existing user #{user.name}"
-    # need something for users already in database
-    redirect_to root_path
+    @user = User.find_by(name: params[:name])
+    if @user
+      flash[:success] = "Successfully logged in as existing user #{@user.name}"
+      session[:user_id] = @user.id
+      session[:user] = @user.name
+      redirect_to root_path
+    else
+      @user = User.new(name: params[:name])
+      if @user.save
+        flash[:success] = "Successfully created new user #{@user.name} with ID #{@user.id}"
+        session[:user_id] = @user.id
+        session[:user] = @user.name
+        redirect_to root_path
+      else
+        @work = @user
+        flash[:error] = "A problem occurred: Could not log in"
+        render :login_form
+      end
+    end
   end
 
   def logout
+    session[:user_id] = nil
     session[:user] = nil
-    flash[:status] = :success
-    flash[:message] = "Successfully logged out"
-
+    flash[:success] = "Successfully Logged Out"
     redirect_to root_path
   end
 end
