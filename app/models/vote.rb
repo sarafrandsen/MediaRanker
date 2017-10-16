@@ -1,3 +1,4 @@
 class Vote < ApplicationRecord
-  belongs_to :work, :user
+  belongs_to :user
+  belongs_to :work
 end
