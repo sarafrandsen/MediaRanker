@@ -6,8 +6,4 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :show]
   resources :votes, only: [:index, :new, :create]
   resources :works
-
-  get 'login', to: 'users#login', as: 'login'
-  post 'login', to: 'users#login'
-  get 'logout', to: 'users#logout', as: 'logout'
 end
