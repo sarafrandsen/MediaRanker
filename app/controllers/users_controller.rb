@@ -10,4 +10,9 @@ class UsersController < ApplicationController
       return head :not_found
     end
   end
+
+  def create
+    user = User.new(name: params[:user][:name])
+    user.save
+  end
 end
