@@ -1,7 +1,10 @@
 class WorksController < ApplicationController
 
-  def root
-    # homepage
+  def main
+    user_id = session[:user_id]
+    if user_id
+      @user = User.find(user_id)
+    end
   end
 
   def index
