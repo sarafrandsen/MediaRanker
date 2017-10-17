@@ -14,10 +14,17 @@ class WorksController < ApplicationController
   end
 
   def create
+    @work = Work.new(work_params)
+    if @work.save
+      redirect_to work_path(@work.id)
+    else
+      render new_work_path
+    end
     # POST new work
   end
 
   def show
+    @work = Work.find(params[:id])
     # individual work
   end
 
