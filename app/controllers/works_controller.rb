@@ -29,10 +29,17 @@ class WorksController < ApplicationController
   end
 
   def edit
+    @work = Work.find(params[:id])
     # GET changes
   end
 
   def update
+    @work = Work.find(params[:id])
+    if @work.update(work_params)
+      return redirect_to works_path
+    else
+      return render :edit, status: :bad_request
+    end
     # POST changes
   end
 
