@@ -6,6 +6,7 @@ class WorksController < ApplicationController
 
   def index
     # view all works
+    @works = Work.all
   end
 
   def new
