@@ -6,7 +6,7 @@ class CreateWorks < ActiveRecord::Migration[5.1]
       t.string :description
       t.date :publication_date
       t.string :category
-      
+
       t.timestamps
     end
   end
