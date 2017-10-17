@@ -1,21 +1,10 @@
-<ul>
-  <% @works.each do |work| %>
-  <%# works or @works ?? %>
-    <li>
-      <%# number of votes %>
-    </li>
-    <li>
-      <%= link_to work.title, work_path(work.id) %>
-    </li>
-    <li>
-      <%= work.creator %>
-    </li>
-    <li>
-      <%= work.publication_year %>
-    </li>
-    <li>
-      <%# link to upvote %>
-    </li>
-    <br />
-  <% end %>
-</ul>
+<section>
+  <h3>Books</h3>
+  <%= render partial: 'list', locals: {works: @books} %>
+
+  <h3>Movies</h3>
+  <%= render partial: 'list', locals: {works: @movies} %>
+  
+  <h3>Albums</h3>
+  <%= render partial: 'list', locals: {works: @albums} %>
+</section>
