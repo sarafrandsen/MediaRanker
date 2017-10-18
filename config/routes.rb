@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   get    '/login',   to: 'sessions#login'
   post   '/login',   to: 'sessions#create'
-  post '/logout',  to: 'sessions#logout'
+  post   '/logout',  to: 'sessions#logout'
+  post   '/works/:id/upvote', to: 'works#upvote', as: 'upvote'
 end
