@@ -25,8 +25,8 @@
   </nav>
 
   <nav>
-    <!-- <% if flash[:result_text] or flash[:messages] %>
-      <h3><%= flash[:status] == :failure ? "A problem occurred: " : "" %><%= flash[:result_text] %></h3>
+    <% if flash[:result_text] or flash[:messages] %>
+      <%= flash[:status] == :failure ? "A problem occurred: " : "" %><%= flash[:result_text] %>
       <% if flash[:messages] %>
         <ul>
           <% flash[:messages].each do |name, problems| %>
@@ -36,7 +36,7 @@
           <% end %>
         </ul>
       <% end %>
-    <% end %> -->
+    <% end %>
 
     <% if @user %>
       <%= @user.username %>
