@@ -63,12 +63,10 @@ class WorksController < ApplicationController
     user_id = session[:user_id]
     if user_id
       user = User.find(user_id)
-      if user.upvote(params[:id])
-        flash[:status] = :success
-        flash[:result_text] = 'You upvoted the work!'
-      else
+      upvoted, message = user.upvote(params[:id])
+      unless upvoted
         flash[:status] = :error
-        flash[:result_text] = 'Something bad happened'
+        flash[:result_text] = message
       end
     end
     redirect_to work_path(params[:id])
