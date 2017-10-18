@@ -8,6 +8,7 @@ class WorksController < ApplicationController
     @movies = Work.where(category: 'movie')
     @books = Work.where(category: 'book')
     @albums = Work.where(category: 'album')
+    puts @user
   end
 
   def index
