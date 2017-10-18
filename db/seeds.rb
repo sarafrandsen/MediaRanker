@@ -5,10 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Work.create([{title: 'Cool Title', creator: 'Suge', publication_year: 2017, description: 'A long desc', category: 'book'}])
+authors = %w(Kitty, Finn, Girlie, Suge, Sara, Jamey)
 
-Work.create([{title: 'Cool Title 2', creator: 'Finn', publication_year: 2019, description: 'A longer desc', category: 'movie'}])
+users = %w(burger taco spaghetti padthai mayonnaise tuna sardine tofu ramen hotdog rice eggroll hotpot burrito steak)
+users.each do |username|
+  User.create(username: username)
+end
 
-Work.create([{title: 'Eating', creator: 'Girlie', publication_year: 2006, description: 'A food', category: 'album'}])
+30.times do |n|
+  Work.create([{title: "Book #{n}", creator: authors.sample, publication_year: 2017, description: "Description for Book #{n}", category: 'book'}])
+end
+30.times do |n|
+  Work.create([{title: "Movie #{n}", creator: authors.sample, publication_year: 2010, description: "Description for Movie #{n}", category: 'movie'}])
+end
+30.times do |n|
+  Work.create([{title: "Album #{n}", creator: authors.sample, publication_year: 2001, description: "Description for Album #{n}", category: 'album'}])
+end
 
-Work.create([{title: 'Hairballs', creator: 'Kitty', publication_year: 2006, description: 'Was a food', category: 'album'}])
+Work.all.each do |work|
+  User.all.each do |user|
+    if [true, false].sample
+      Vote.create(user: user, work: work)
+    end
+  end
+end
