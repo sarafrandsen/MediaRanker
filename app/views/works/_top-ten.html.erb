@@ -1,0 +1,13 @@
+<%# partial view for top 10 lists %>
+<article>
+  <h1>
+    Top <% @work %>
+  </h1>
+
+  <% works.each do |work| %>
+    <ul>
+      <li><h2><%= link_to work.title, work_path(work.id) %></h2> <h3>by <%= work.creator %></h3></li>
+      <li><%#= work.vote.count %> votes</li>
+    </ul>
+  <% end %>
+</article>
