@@ -1,11 +1,11 @@
 <section class="row">
   <article class="spotlight">
     <h2>
-      Media Spotlight: <span class="spotlight"><%#= link_to @spotlight.title, work_path(@spotlight.id) %> by <%#= @spotlight.creator %></span>
+      Media Spotlight: <span class="spotlight"><%= link_to @spotlight.title, work_path(@spotlight.id) %> by <%= @spotlight.creator %></span>
     </h2>
     <p>
-      <%#= @spotlight.votes.count %> votes
-      <%#= " - #{@spotlight.description}" if @spotlight.description %>
+      <%= @spotlight.votes.count %> votes
+      <%= " - #{@spotlight.description}" if @spotlight.description %>
     </p>
   </article>
 </section>

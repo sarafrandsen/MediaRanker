@@ -9,6 +9,7 @@ class WorksController < ApplicationController
     @books = Work.top_ten('book')
     @albums = Work.top_ten('album')
     puts @user
+    @spotlight = Work.all.order(votes_count: :desc).first
   end
 
   def index
