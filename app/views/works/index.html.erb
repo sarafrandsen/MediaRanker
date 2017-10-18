@@ -1,10 +1,10 @@
+<header>List of works</header>
 <section>
+  <%= render partial: 'list', locals: {works: @albums} %>
+
   <h3>Books</h3>
   <%= render partial: 'list', locals: {works: @books} %>
 
   <h3>Movies</h3>
   <%= render partial: 'list', locals: {works: @movies} %>
-  
-  <h3>Albums</h3>
-  <%= render partial: 'list', locals: {works: @albums} %>
 </section>

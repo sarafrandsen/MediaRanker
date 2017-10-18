@@ -1,21 +1,20 @@
+<h3><%= work %></h3>
 <ul>
-  <% works.each do |work| %>
-  <%# works or @works ?? %>
-    <li>
-      <%# number of votes %>
-    </li>
-    <li>
-      <%= link_to work.title, work_path(work.id) %>
-    </li>
-    <li>
-      <%= work.creator %>
-    </li>
-    <li>
-      <%= work.publication_year %>
-    </li>
-    <li>
-      <%# link to upvote %>
-    </li>
-    <br />
-  <% end %>
+  <li><strong>Votes</strong></li>
+  <li><strong>Title</strong></li>
+  <li><strong>Created By</strong></li>
+  <li><strong>Published</strong></li>
+  <li><strong>Upvote</strong></li>
 </ul>
+
+<% works.each do |work| %>
+<%# works or @works ?? %>
+<ul>
+  <li><%# number of votes %></li>
+  <li><%= link_to work.title, work_path(work.id) %></li>
+  <li><%= work.creator %></li>
+  <li><%= work.publication_year %></li>
+  <li><%# link to upvote %></li>
+  <br />
+</ul>
+<% end %>
