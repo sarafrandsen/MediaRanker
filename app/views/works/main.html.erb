@@ -12,17 +12,17 @@
 
 <section class="top-10 row">
   <div class="small-12 large-4 columns">
-    <h3>Albums</h3><%# top ten albums %>
-    <%= render partial: 'list', locals: {works: @albums} %>
+    <h3>Top Albums</h3><%# top ten albums %>
+    <%= render partial: 'top-ten', locals: {works: @albums} %>
   </div>
 
   <div class="small-12 large-4 columns">
-    <h3>Books</h3><%# top ten books %>
-    <%= render partial: 'list', locals: {works: @books} %>
+    <h3>Top Books</h3><%# top ten books %>
+    <%= render partial: 'top-ten', locals: {works: @books} %>
   </div>
 
   <div class="small-12 large-4 columns">
-    <h3>Movies</h3><%# top ten movies %>
-    <%= render partial: 'list', locals: {works: @movies} %>
+    <h3>Top Movies</h3><%# top ten movies %>
+    <%= render partial: 'top-ten', locals: {works: @movies} %>
   </div>
 </section>
