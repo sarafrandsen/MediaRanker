@@ -20,11 +20,11 @@
     <%= link_to 'View all users', users_path, class: 'button' %>
 
     <div class="float-right">
-      <% if @user %>
-      <%= @user.username %>
-      <%= link_to "Log out", logout_path, method: :post, class: "button" %>
+      <% if @user && @user.id %>
+        <%= link_to "Logged in as #{ @user.username }", user_path(@user.id), class: "button" %>
+        <%= link_to "Log out", logout_path, method: :post, class: "button" %>
       <% else %>
-      <%= link_to "Log in", login_path, class: "button" %>
+        <%= link_to "Log in", login_path, class: "button" %>
       <% end %>
 
       <% if flash[:result_text] or flash[:messages] %>
