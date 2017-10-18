@@ -5,9 +5,9 @@ class WorksController < ApplicationController
     if user_id
       @user = User.find(user_id)
     end
-    @movies = Work.where(category: 'movie')
-    @books = Work.where(category: 'book')
-    @albums = Work.where(category: 'album')
+    @movies = Work.top_ten('movie')
+    @books = Work.top_ten('book')
+    @albums = Work.top_ten('album')
     puts @user
   end
 
