@@ -26,7 +26,9 @@
       <% else %>
         <%= link_to "Log in", login_path, class: "button" %>
       <% end %>
+    </div>
 
+    <div>
       <% if flash[:result_text] or flash[:messages] %>
         <%= flash[:status] == :failure ? "A problem occurred: " : "" %><%= flash[:result_text] %>
         <% if flash[:messages] %>
@@ -39,7 +41,6 @@
           </ul>
         <% end %>
       <% end %>
-
     </div>
   </nav>
 
